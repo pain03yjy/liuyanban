@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/banner.css">
+    <script src="/bootstrap/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/banner.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse" style="margin-bottom:0;">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">班级说说</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">全部说说<span class="sr-only">(current)</span></a></li>
+                <li><a href="">我的说说</a></li>
+                <li><a href="">成员列表</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/login">登录</a></li>
+                <li><a href="/regist">注册</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src="/userP/pic.jpg" alt="" width="100" height="100">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h1 class="media-heading">欢迎</h1>
+                    </div>
+                </div>
+                <p>
+                    班级留言是我们的交流平台，欢迎注册登录，请大家畅所
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="/login" role="button">登录</a>
+                    <a class="btn btn-primary btn-lg" href="/regist" role="button">注册</a>
+                </p>
+            </div>
+            <div class="col-md-6">
+                    <div class="banner">
+                        <div class="banner_img">
+                            <img src="images/banner_imgs/1.jpg">
+                            <img src="images/banner_imgs/2.jpg">
+                            <img src="images/banner_imgs/3.jpg">
+                            <img src="images/banner_imgs/4.jpg">
+
+                        </div>
+                        <span class="left_btn"><img src="images/banner_imgs/prevBtn.png"></span>
+                        <span class="right_btn"><img src="images/banner_imgs/nextBtn.png"></span>
+
+                        <div class="down_txt">
+                            <p>这是第一张图</p>
+                            <p>这是第二张图</p>
+                            <p>这是第三张图</p>
+                            <p>这是第四张图</p>
+                        </div>
+                        <ul>
+                            <li class="current"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <script src="/bootstrap/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+    <script src="/js/jquery.min.js"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse" style="margin-bottom:0;">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/main">班级说说</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li><a href="/main">全部说说<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="/myIndex">我的说说</a></li>
+                <li><a href="/allUser">成员列表</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="">欢迎你 <%=uname%></a></li>
+                <li><a href="/exit">退出</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="media" style="margin-top:15px;">
+                    <div class="media-left media-middle">
+                        <a href="/headerPic">
+                            <img id="headp" class="media-object"
+                                 src="/<%=uname%>.jpg"  alt="err" width="100" height="100">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h2 class="media-heading" id="uname"><%=uname%></h2>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row"  id="tem">
+        <%for(var i=0;i<arr.length;i++){%>
+        <div class="col-md-4" style="margin-bottom:30px;">
+            <div class="media">
+                <div class="media-left">
+                    <a href="">
+                        <img class="media-object" src="/<%=arr[i].uname%>.jpg" alt="" width="64" height="64">
+                    </a>
+                </div>
+            <div class="media-body">
+                <p><%=arr[i].content%></p>
+                <p><%=arr[i].time%></p>
+            </div>
+            <br>
+            <p><a  class="btn btn-danger btn-xs" role="button" delid="<%=arr[i]._id%>" id="del">删除</a></p>
+        </div>
+        </div>
+        <%}%>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#tem > div.col-md-4 >div.media>p>#del").click(function(){
+            $.ajax({
+                url:"/delMy",
+                method:"get",
+                data:{
+                    "delid":$(this).attr("delid")
+                },
+                success:function(result){
+                    if(result == "-1"){
+                        alert("删除失败")
+                    }else{
+                        alert("删除成功");
+                        window.location.href=("/myIndex")
+                    }
+                }
+            })
+        })
+
+    })
+
+</script>
